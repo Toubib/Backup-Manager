@@ -144,7 +144,7 @@ function __exec_meta_command()
         logfile=$(mktemp ${BM_TEMP_DIR}/bm-command.XXXXXX)
 
         case "$compress" in
-        "gzip"|"gz"|"bzip"|"bzip2")
+        "gzip"|"gz"|"bzip"|"bzip2"|"xz")
             if [[ "$compress" = "gzip" ]] || 
                [[ "$compress" = "gz" ]]; then
                compress_bin=$gzip
@@ -160,6 +160,13 @@ function __exec_meta_command()
                     error "bzip2 is not installed but bzip2 compression needed."
                 fi
                ext="bz2"
+            fi
+            if [[ "$compress" = "xz" ]]; then
+               compress_bin=$xz
+                if [[ -z "$compress_bin" ]]; then
+                    error "xz is not installed but xz compression needed."
+                fi
+               ext="xz"
             fi
 
             if [[ -n "$compress_bin" ]] && [[ -x "$compress_bin" ]]; then
