@@ -144,7 +144,7 @@ function __exec_meta_command()
         logfile=$(mktemp ${BM_TEMP_DIR}/bm-command.XXXXXX)
 
         case "$compress" in
-        "gzip"|"gz"|"bzip"|"bzip2")
+        "gzip"|"gz"|"bzip"|"bzip2"|"xz")
             if [[ "$compress" = "gzip" ]] || 
                [[ "$compress" = "gz" ]]; then
                compress_bin=$gzip
@@ -160,6 +160,13 @@ function __exec_meta_command()
                     error "bzip2 is not installed but bzip2 compression needed."
                 fi
                ext="bz2"
+            fi
+            if [[ "$compress" = "xz" ]]; then
+               compress_bin=$xz
+                if [[ -z "$compress_bin" ]]; then
+                    error "xz is not installed but xz compression needed."
+                fi
+               ext="xz"
             fi
 
             if [[ -n "$compress_bin" ]] && [[ -x "$compress_bin" ]]; then
@@ -488,6 +495,10 @@ function __get_backup_tarball_remote_command()
             __get_flags_tar_blacklist "$target"
             command="$tar $blacklist $dumpsymlinks $BM_TARBALL_EXTRA_OPTIONS -p -c --lzma "$target""
         ;;
+        tar.xz)
+            __get_flags_tar_blacklist "$target"
+            command="$tar $blacklist $dumpsymlinks $BM_TARBALL_EXTRA_OPTIONS -p -c -J "$target""
+        ;;
         *)
             error "Remote tarball building is not possible with this archive filetype: \"$BM_TARBALL_FILETYPE\"."
         ;;
@@ -563,6 +574,10 @@ function __get_backup_tarball_command()
         tar.gz)
             __get_flags_tar_blacklist "$target"
             command="$tar $incremental $blacklist $dumpsymlinks $BM_TARBALL_EXTRA_OPTIONS -p -c -z -f"
+        ;;
+        tar.xz)
+            __get_flags_tar_blacklist "$target"
+            command="$tar $incremental $blacklist $dumpsymlinks $BM_TARBALL_EXTRA_OPTIONS -p -c -J -f"
         ;;
         tar.bz2|tar.bz) 
             if [[ ! -x $bzip ]]; then
@@ -782,7 +797,7 @@ function __make_local_tarball_token
             "dar")
                 __get_flags_dar_incremental "$dir_name"
             ;;
-            "tar"|"tar.gz"|"tar.bz2")
+            "tar"|"tar.gz"|"tar.bz2"|"tar.xz")
                 __get_flags_tar_incremental "$dir_name"
             ;;
             esac
@@ -842,7 +857,7 @@ function backup_method_tarball()
     
     # build the command line
     case $BM_TARBALL_FILETYPE in 
-    tar|tar.bz2|tar.gz)
+    tar|tar.bz2|tar.gz|tar.xz)
         dumpsymlinks="$(__get_flags_tar_dump_symlinks)"
     ;;
     zip)
