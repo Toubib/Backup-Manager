@@ -40,6 +40,12 @@ vardir="$VAR_PREFIX/backup-manager"
 bmu="$BIN_PREFIX/backup-manager-upload"
 bmp="$BIN_PREFIX/backup-manager-purge"
 
+#set path to current dir if defined do not exists
+test -d $libdir || libdir=$(pwd)/lib
+test -d $vardir || vardir=$(pwd)/var
+test -f $bmu || bmu=$(pwd)/backup-manager-upload
+test -f $bmp || bmp=$(pwd)/backup-manager-purge
+
 # Find which lockfile to use
 # If we are called by an unprivileged user, use a lockfile inside the user's home;
 # else, use /var/run/backup-manager.lock
