@@ -14,6 +14,6 @@ How to install backup-manager
 You can then edit /etc/backup-manager.conf to fit your needs.
 
 Refere to the user guide for details: 
-http://www.backup-manager.org/documentation/user-guide/
+https://github.com/sukria/Backup-Manager/wiki
 
 

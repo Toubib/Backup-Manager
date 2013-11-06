@@ -107,17 +107,17 @@ Backup Manager 0.7.8
 	* doc/README.dbus
 	  + some dbus support docs
 
-2007-04-24  Alexis Sukrieh  <sukria@backup-manager.org>
+2007-04-24  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Release: 0.7.6
 
-2007-03-13  Alexis Sukrieh  <sukria@backup-manager.org>
+2007-03-13  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Support for a new variable that control whether BM should purge archives
 	made by other instance of the one that is running (BM_ARCHIVE_STRICTPURGE)
 	(closes: #153).
 
-2007-02-20	Alexis Sukrieh	<sukria@backup-manager.org>
+2007-02-20	Alexis Sukrieh	<sukria@gmail.com>
 
 	* lib/backup-methods.sh
 	  + change every call to external command so that we can read their return
@@ -129,27 +129,27 @@ Backup Manager 0.7.8
 	* Don't stop the main process if errors are triggered by external
 	  commands (closes: #141).
 
-2007-01-02	Alexis Sukrieh	<sukria@backup-manager.org>
+2007-01-02	Alexis Sukrieh	<sukria@gmail.com>
 
 	* doc/user-guide.sgml, doc/user-guide.txt
 	  + More precise documentation about how to use a zero-TTL for local
 	  purging with a different one for remote ones.
 	  (closes: #144)
 
-2007-01-02	Alexis Sukrieh	<sukria@backup-manager.org>
+2007-01-02	Alexis Sukrieh	<sukria@gmail.com>
 
 	* lib/backup-methods.sh
 	  + Fix the security vulnerability about passing MySQL client password
 	  through the commandline. Using ~/.my.cnf instead.
 	  (closes: #146)
 
-2006-12-29	Alexis Sukrieh	<sukria@backup-manager.org>
+2006-12-29	Alexis Sukrieh	<sukria@gmail.com>
 
 	* doc/user-guide.sgml, doc/user-guide.txt
 	  + New section about the encryption using GPG.
 	  (closes: #132)
 
-2006-12-29	Alexis Sukrieh	<sukria@backup-manager.org>
+2006-12-29	Alexis Sukrieh	<sukria@gmail.com>
 
 	* lib/sanitize.sh
 	  + Make sure BM_ENCRYPTION_RECIPIENT is defined when BM_ENCRYPTION_METHOD
@@ -160,13 +160,13 @@ Backup Manager 0.7.8
 	  + The code of the gzip and the bzip2 compressors have been merged.
 	  Less code, less bugs Luke.
 
-2006-12-11  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-12-11  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/files.sh
 	  + change a call to mktemp so it's compliant with old versions (mktemp
 	  <path>).
 
-2006-10-23  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-10-23  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager:
 	  + Renamed the trap callback "stop_me()" to "clean_exit()"; more approriate name.
@@ -177,14 +177,14 @@ Backup Manager 0.7.8
 	  friends if the build process has not been correctly finished).
 	* Messages updates.
 
-2006-10-20  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-10-20  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Makefile:
 	  + Don't build the docs by default anymore, the debiandoc tools may not
 	  be there.
 	  (close #134)
 
-2006-10-20  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-10-20  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Copyright headers and debugging messages
 	  - lib/backup-methods.sh
@@ -195,7 +195,7 @@ Backup Manager 0.7.8
 	* If the GPG encryption feature is used, make sur we check if $archive.gpg
 	exists instead of $archive when building archives.
 
-2006-10-19  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-10-19  Alexis Sukrieh  <sukria@gmail.com>
 
 	* doc/Makefile:
 	  + Don't build the doc files if they are up-to-date.
@@ -210,7 +210,7 @@ Backup Manager 0.7.8
 	* po/backup-manager.pot, po/*.po:
 	  + Updates
 
-2006-10-11  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-10-11  Alexis Sukrieh  <sukria@gmail.com>
 
 	* doc/Makefile:
 	  + Don't build the doc files if they are up-to-date.
@@ -220,25 +220,25 @@ Backup Manager 0.7.8
 	* lib/dialog.sh:
 	  + function tail_logfile().
 
-2006-10-11  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-10-11  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/logger.sh:
 	  + Exec the post-command when exiting.
 	  (closes: #118)
 
-2006-10-11  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-10-11  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/sanitize.sh:
 	  + Make sure the $key we test is defined.
 	  (closes: #110)
 
-2006-10-11  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-10-11  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/backup-methods.sh:
 	  + look for previous DAR archives in the last 30 ones possible.
 	  (closes: #127).
 
-2006-10-06  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-10-06  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Makefile:
 	  + Added SVN properties to track some metadata.
@@ -251,7 +251,7 @@ Backup Manager 0.7.8
 	* backup-manager:
 	  + Back to the unreleased mode, version is 0.7.5+REV
 
-2006-09-16  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-16  Alexis Sukrieh  <sukria@gmail.com>
 
 	* AUTHORS:
 	  + Bits updated in the AUTHORS file.
@@ -260,7 +260,7 @@ Backup Manager 0.7.8
 	* backup-manager:
 	  + Release, version, and so on.
 
-2006-09-16  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-16  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/backup-methods.sh:
 	  + Added `-p ${BM_UPLOAD_SSH_PORT}' when building tarball over SSH so the
@@ -268,28 +268,28 @@ Backup Manager 0.7.8
 	* lib/sanitize.sh:
 	  + Some sanitize statement to make sure BM_UPLOAD_SSH_PORT is defined.
 
-2006-09-15  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-15  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Translation updates, all messages translated in all languages.
 
-2006-09-13  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-13  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/backup-methods.sh:
 	  + Don't ignore BM_TARBALL_OVER_SSH, if it's set to true, actually do the
 	  remote stuff we are expected to (closes: #123).
 
-2006-09-09  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-09  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/backup-methods.sh
 	  + Uses 'svnadmin -q' for disabling useless verbosity.
 
-2006-09-08  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-08  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager-upload:
 	  + Fixed a bug with the FTP TLS code, use the correct API instead of the
 	  one of Net::FTP.
 
-2006-09-08  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-08  Alexis Sukrieh  <sukria@gmail.com>
 
 	[ Alexis Sukrieh & Michael Guerin ]
 
@@ -302,13 +302,13 @@ Backup Manager 0.7.8
 	* Rewrite of the FTP part of the code in backup-manager-upload.
 	* Documentation about BM_UPLOAD_FTP_SECURE configuration variable.
 
-2006-09-06  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-06  Alexis Sukrieh  <sukria@gmail.com>
 
 	[ Bjorn Wetzels ]
 	
 	* All messages translated in po/nl.po.
 
-2006-09-06  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-06  Alexis Sukrieh  <sukria@gmail.com>
 
 	[ Miroslav Kure ]
 
@@ -324,7 +324,7 @@ Backup Manager 0.7.8
 	* Applied review from Stephane Blondon in po/fr.po.
 
 
-2006-09-05  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-05  Alexis Sukrieh  <sukria@gmail.com>
 
 	[ Sven Joachim ]
 
@@ -339,53 +339,53 @@ Backup Manager 0.7.8
 	  + po/backup-manager.pot, po/cs.po, po/de.po, po/es.po, po/fr.po,
 	  po/it.po, po/vi.po.
 
-2006-09-05  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-05  Alexis Sukrieh  <sukria@gmail.com>
 
 	[ Clytie Sidall ]
 
 	* All messages translated in po/vi.po.
 
-2006-09-05  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-05  Alexis Sukrieh  <sukria@gmail.com>
 
 	* po/LINGUAS
 	  + Added all supported languages in LINGUAS (thanks to Clytie Sidall).
 
-2006-09-04  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-04  Alexis Sukrieh  <sukria@gmail.com>
 
 	[ Matteo Frare Barutti ]
 
 	* All messages translated in po/it.po.
 
-2006-09-04  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-04  Alexis Sukrieh  <sukria@gmail.com>
 	
 	[ Carlos Galisteo ]
 
 	* All messages translated in po/es.po.
 
-2006-09-04  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-04  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/backup-methods.sh
 	  + Fixed an if-elif-else structure
 
-2006-09-04  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-04  Alexis Sukrieh  <sukria@gmail.com>
 
 	* All translations done in po/fr.po
 
-2006-09-02  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-02  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Translations updates
 	  + All messages translated in po/cs.po
 	  + Updates in  po/fr.po
 	  + All messages translated in po/vi.po
 
-2006-09-02  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-02  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/upload-methods.sh:
 	  + Passes ssh options through the RSYNC_RSH environement variable instead
 	    of using the rsync -e switch in the command line.
 	    (closes: #122).
 
-2006-09-01  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-01  Alexis Sukrieh  <sukria@gmail.com>
 
 	[ Thomas Parmelan ]
 
@@ -405,7 +405,7 @@ Backup Manager 0.7.8
 	* Test the purging system with/without recursion
 	  (t/t14-purging-system.sh).
 
-2006-09-01  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-01  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/files.sh:
 	  + Applied patch from Thomas Parmelan for closing bug #120. The recursive
@@ -415,26 +415,26 @@ Backup Manager 0.7.8
 	  + Added some sub-directories in the test repository in order to
 	    reproduce bug #120.
 
-2006-09-01  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-09-01  Alexis Sukrieh  <sukria@gmail.com>
 
 	* t/testlib.sh:
 	  + That file was hit by bug#119 too, all the test scripts were broken.
 
-2006-08-31  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-08-31  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/gettext.sh
 	  + Do not source /usr/share/backup-manager but $libdir instead (was
 	    breaking test scripts on boxes where BM isn't installed).
 	* Replaced every #!/bin/sh by #!/bin/bash in test scripts.
 
-2006-08-27  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-08-27  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/sanitize.sh:
 	  + BM_UPLOAD_SSH_HOSTS, BM_UPLOAD_SSH_USER and
 	    BM_UPLOAD_SSH_KEY are mandatory if BM_TARBALL_OVER_SSH is set to "true".
 		(closes: #97).
 
-2006-08-27  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-08-27  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager:
 	  + Replaced static paths to external programs by $(which statement).
@@ -443,7 +443,7 @@ Backup Manager 0.7.8
 	  + Applied the same changes to the teslib.sh library so the test scripts
 	    behave the same way.
 
-2006-08-27  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-08-27  Alexis Sukrieh  <sukria@gmail.com>
 
 	* BackupManager/Logger.pm:
 	  + Applied patch from ilya margolin for propagating 
@@ -451,26 +451,26 @@ Backup Manager 0.7.8
 	* backup-manager:
 	  + Added a copyright header when BM is launched on verbose mode.
 
-2006-08-07  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-08-07  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/backup-methods.sh:
 	  + the dar build commandline is now working.
 	    (closes: #109)
 
-2006-08-05  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-08-05  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager:
 	  + Possible to use BM with an unprivileged user thanks to the new path
 	  used for the lockfile if run by a non-root user.
 
-2006-08-05  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-08-05  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager-upload:
 	* lib/upload-methods.sh:
 	  + No more su to $BM_UPLOAD_USER, it's useless.
 	    (closes: #105)
 
-2006-07-05  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-07-05  Alexis Sukrieh  <sukria@gmail.com>
 	
 	[ Add support for local encryption with GPG - closes: #82 ]
 	* backup-manager:
@@ -487,7 +487,7 @@ Backup Manager 0.7.8
 	* t/t18-tarball-encryption.sh:
 	   + Test script for that new feature (builds a tar.gz.gpg archive).
 
-2006-07-03  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-07-03  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/burning-methods.sh:
 	  + Fix the way md5 sums are checked (closes: #92)
@@ -497,13 +497,13 @@ Backup Manager 0.7.8
 	* po/fr.po:
 	  + Fix about a bad translated message.
 
-2006-07-03  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-07-03  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/backup-methods.sh:
 	  + Uses -eq instead of = when testing BM_TARBALLINC_MASTERDATEVALUE
 	  (closes: #104).
 
-2006-06-30  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-06-30  Alexis Sukrieh  <sukria@gmail.com>
 	
 	[ Support for non-Joliet disc images (closes: #89) ]
 	* backup-manager.conf.tpl:
@@ -517,20 +517,20 @@ Backup Manager 0.7.8
 	  + Uses $BM_BURNING_ISO_FLAGS instead of "-R -J" in mkisofs/growisofs
 	    commands. 
 
-2006-06-29  Alexis Sukrieh <sukria@backup-manager.org>
+2006-06-29  Alexis Sukrieh <sukria@gmail.com>
 
 	* lib/burning-methods.sh:
 	  + Correct syntax for the "-use-the-force-luke=tty" option in growisofs
 	  command lines (Thanks to Rached Ben Mustapha).
 
-2006-06-29  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-06-29  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/burning-methods.sh:
 	  + Apply patch for adding the "-use-the-force-luke" switch in growisofs
 	  commands, possible to burn DVD+RW media within the CRON environement.
 	  (closes #102)
 
-2006-06-27  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-06-27  Alexis Sukrieh  <sukria@gmail.com>
 	
 	[ support for tar.lz archives ] 
 	* backup-manager:
@@ -543,7 +543,7 @@ Backup Manager 0.7.8
 	* lib/backup-methods.sh:
 	  + command line for building tar.lz archives
 
-2006-06-21  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-06-21  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager:
 	  + VERSION = 0.7.4
@@ -554,14 +554,14 @@ Backup Manager 0.7.8
 	  + Bits about SSH purging.
 	* lib/backup-methods.sh:
 
-2006-06-21  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-06-21  Alexis Sukrieh  <sukria@gmail.com>
 
 	* NEWS:
 	  + Notes about last bug closed, #83).
 	* backup-manager-upload:
 	  + Fixed the 'Net::Amazon::S3' error message (closes: #93).
 
-2006-06-21  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-06-21  Alexis Sukrieh  <sukria@gmail.com>
 
 	* VERSION: 0.7.4
 	* lib/backup-methods.sh:
@@ -571,7 +571,7 @@ Backup Manager 0.7.8
 	* t/t11-pipe-method.sh:
 	  + Template of a command that fails.
 
-2006-06-20  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-06-20  Alexis Sukrieh  <sukria@gmail.com>
 
 	* NEWS:
 	  + More details about bugs fixed in 0.7.4.
@@ -580,7 +580,7 @@ Backup Manager 0.7.8
 	* lib/upload-methods.sh:
 	  + Gently propagate the BM_UPLOAD_SSH_PURGE thing.
 
-2006-06-20  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-06-20  Alexis Sukrieh  <sukria@gmail.com>
 
 	* NEWS:
 	  + Bits from the devel corner.
@@ -588,7 +588,7 @@ Backup Manager 0.7.8
 	  + Support archive targets with spaces in their name and archive to
 	    expand as well.
 
-2006-04-22  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-04-22  Alexis Sukrieh  <sukria@gmail.com>
 
 	[ Based on the work done by Jan Metzger ]
 	
@@ -609,7 +609,7 @@ Backup Manager 0.7.8
 	  + lib/upload-methods.sh
 	    - bm_upload_ssh_gpg() added, wrapper to backup-manager-upload.
 
-2006-04-03  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-04-03  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/files.sh:
 	  + applied patch from Mario Domgörgen for fixing the
@@ -619,7 +619,7 @@ Backup Manager 0.7.8
 	* t/t14-purging-system.sh:
 	  + switch the verbosity off.
 
-2006-04-02  Alexis Sukrieh,,,  <sukria@backup-manager.org>
+2006-04-02  Alexis Sukrieh,,,  <sukria@gmail.com>
 
 	* AUTHORS:
 	  + added Brad Dixon about the S3 module.
@@ -638,7 +638,7 @@ Backup Manager 0.7.8
 	* t/run-tests.sh:
 	  + Better layout.
 
-2006-03-29  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-03-29  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Closes bug #66 - Support of Amazon S3 uploads.
 	  + backup-manager-upload
@@ -650,7 +650,7 @@ Backup Manager 0.7.8
 	  + Support of the new variable BM_TARBALL_EXTRA_OPTIONS for appending
 	  extra options to the command line.
 
-2006-03-28  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-03-28  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager.conf.tpl:
 	  + New configuration variable: BM_TARBALL_OVER_SSH 
@@ -664,7 +664,7 @@ Backup Manager 0.7.8
 	* lib/files.sh:
 	  + Some TODO tags.
 
-2006-03-24  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-03-24  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/actions.sh:
 	  + Some more errors when failing to chown/chmod.
@@ -683,18 +683,18 @@ Backup Manager 0.7.8
 	  + t/t10-tarball-dar-blacklist.sh
 	  + t/t12-tarball-incremental-dar.sh
 
-2006-03-16  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-03-16  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/upload-methods.sh:
 	* t/t02-rsync.sh:
 
-2006-03-15  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-03-15  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/upload-methods.sh:
 	  + applied patch from Nicolas Rennert for closing #49.
 	  + make sure we don't have a trailing / at the end of the RSYNC command.
 
-2006-03-14  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-03-14  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager:
 	  + Added path for /usr/bin/7z
@@ -709,13 +709,13 @@ Backup Manager 0.7.8
 	* t/testlib.sh:
 	  + Added path for /usr/bin/7z
 
-2006-03-12  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-03-12  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/files.sh:
 	  + Applyied patch 21 for closing #50. 
 	    (Stephen Kitt)
 
-2006-03-12  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-03-12  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Makefile:
 	  + Stop rebuilding the backup-manager-upload.8 manpage ever and ever. If
@@ -725,7 +725,7 @@ Backup Manager 0.7.8
 	* backup-manager:
 	  + VERSION = 0.7.2
 
-2006-03-11  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-03-11  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/actions.sh:
 	  + make_archives() now chown/chmod the md5 file to
@@ -735,13 +735,13 @@ Backup Manager 0.7.8
 	* lib/files.sh:
 	  + some formatting.
 
-2006-03-10  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-03-10  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Setup an umask 0077 for creating files without world permissions.
 	  (closes: #47)
 	* Restore the original umask when exiting.
 
-2006-03-10  Alexis Sukrieh	<sukria@backup-manager.org>
+2006-03-10  Alexis Sukrieh	<sukria@gmail.com>
 
 	* backup-manager:
 	  + Disabled the -u flag, too much problems with the pipe method.
@@ -749,7 +749,7 @@ Backup Manager 0.7.8
 	  + Better layout of the __exec_meta_command.
 	  + Doesn't try to commit an archive if none.
 
-2006-03-09  Alexis Sukrieh	<sukria@backup-manager.org>
+2006-03-09  Alexis Sukrieh	<sukria@gmail.com>
 
 	* backup-manager.conf.tpl:
 	  + speak about the DVD-RW burning method (with formating).
@@ -777,14 +777,14 @@ Backup Manager 0.7.8
 	  connection is closed because of non-activity. It is currently
 	  hardcoded to 60s, which seems like a good compromise.
 
-2006-02-08  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-02-08  Alexis Sukrieh  <sukria@gmail.com>
 
 	* NEWS:
 	  + Release notes for 0.7.1
 	* backup-manager.conf.tpl:
 	  + default blacklist items: /dev /proc /sys
 
-2006-01-19  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-01-19  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/backup-methods.sh:
 	  + major rewrite of the code, much more clean and scalable.
@@ -792,20 +792,20 @@ Backup Manager 0.7.8
 	* t/testlib.sh:
 	  + added missing stuff here, for the tests.
 
-2006-01-17  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-01-17  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager:
 	  + added the path to dvd+rw-format
 	* lib/actions.sh:
 	  + now blank the DVD media explicitly before burning data.
 
-2006-01-17  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-01-17  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/files.sh:
 	  + Applied patch from Michel Grentzinger <mic.grentz@online.fr> for
 	  enhancing the way space occupation is computed (bug #22).
 
-2006-01-17  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-01-17  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager:
 	  + added path to /usr/bin/dar
@@ -817,7 +817,7 @@ Backup Manager 0.7.8
 	* backup-manager.conf.tpl
 	  + New configuration variable "BM_TARBALL_SLICESIZE".
 
-2006-01-05  Alexis Sukrieh  <sukria@backup-manager.org>
+2006-01-05  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager.conf.tpl:
 	  + added BM_MYSQL_SAFEDUMPS for providing a way to perform full clena
@@ -827,7 +827,7 @@ Backup Manager 0.7.8
 	* lib/backup-methods.sh:
 	  + Changes in backup_mysql().
 
-2005-12-31  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-31  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Bug #14 closed. Backup methods are handled better so we can
 	  safely use several methods in the same configruation file.
@@ -835,7 +835,7 @@ Backup Manager 0.7.8
 	  + lib/backup-methods.sh: handle $method rather than $BM_ARCHIVE_METHOD.
 	  + t/t06-bug14.sh: Regression-proof test for this bug.
 
-2005-12-19  Alexis Sukrieh	<sukria@backup-manager.org>
+2005-12-19  Alexis Sukrieh	<sukria@gmail.com>
 
 	* INSTALL:
 	  + bits about dependencies
@@ -851,7 +851,7 @@ Backup Manager 0.7.8
 	* doc/version.ent:
 	  + Revision: 1.0
 
-2005-12-19  Alexis Sukrieh	<sukria@backup-manager.org>
+2005-12-19  Alexis Sukrieh	<sukria@gmail.com>
 
 	* New configuration key BM_UPLOAD_SSH_PORT
 	  + backup-manager.conf.tpl
@@ -876,21 +876,21 @@ Backup Manager 0.7.8
 	* po/es.po:
 	  + New version updated.
 
-2005-12-16  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-16  Alexis Sukrieh  <sukria@gmail.com>
 
 	* AUTHORS:
 	  + Better, less confusing.
 	* doc/user-guide.sgml:
 	  + Sven Joachim fixes (typos...)
 
-2005-12-16  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-16  Alexis Sukrieh  <sukria@gmail.com>
 
 	* po/Makefile:
 	  + better clean target.
 	* po/vi.po:
 	  + Final version of the Vietnamese translations.
 
-2005-12-15  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-15  Alexis Sukrieh  <sukria@gmail.com>
 
 	* AUTHORS:
 	  + Added Clytie Siddall in the translators list.
@@ -898,7 +898,7 @@ Backup Manager 0.7.8
 	  + Final version of the italian translation, thanks to Matteo Frarre
 	  Barutti.
 
-2005-12-13  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-13  Alexis Sukrieh  <sukria@gmail.com>
 
 	* po/Makefile:
 	  + use the .SUFFIXES method, better for handling correctly .mo files. 
@@ -907,7 +907,7 @@ Backup Manager 0.7.8
 	* po/es.po:
 	  + Minor correction, waiting for the reviewed version.
 
-2005-12-13  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-13  Alexis Sukrieh  <sukria@gmail.com>
 
 	* AUTHORS:
 	  + Cleaner
@@ -919,7 +919,7 @@ Backup Manager 0.7.8
 	* backup-manager:
 	  + version= 0.6 (yeah)
 
-2005-12-13  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-13  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Makefile:
 	  + add a target `docs' for building the userguide.
@@ -929,19 +929,19 @@ Backup Manager 0.7.8
 	  + First full version of the translated messages in Italian (Matteo Frare
 	  Barutti <xenon@ngi.it>).
 
-2005-12-13  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-13  Alexis Sukrieh  <sukria@gmail.com>
 
 	* po/es.po:
 	  + New translation from Niv Altivanik (not finished).
 	* t/t05-hooks.sh:
 	  + clean a bit the test script, remove the verbose stuff.
 
-2005-12-13  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-13  Alexis Sukrieh  <sukria@gmail.com>
 
 	* No more yes/no -> true/false
 	* French translatio ok.
 
-2005-12-12  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-12  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Makefile:
 	  + install po files
@@ -957,7 +957,7 @@ Backup Manager 0.7.8
 	* po/fr.po
 	  + New french version, complete.
 
-2005-12-09  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-09  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager:
 	  + cleaned a bit the code.
@@ -965,7 +965,7 @@ Backup Manager 0.7.8
 	  + removed useless BM_BURNING conf key (BM_BURNING_METHOD is enough).
 	* Updated the tests, new test for the hooks.
 
-2005-12-06  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-06  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager-upload:
 	  + chomp() the result of the shell command, better.
@@ -975,13 +975,13 @@ Backup Manager 0.7.8
 	* t/testlib.sh:
 	  + better paths for the lock and pid files.
 
-2005-12-06  Alexis Sukrieh <sukria@backup-manager.org>
+2005-12-06  Alexis Sukrieh <sukria@gmail.com>
 
 	* doc/user-guide.sgml:
 	 + Chapter 3 is finished (well, remains a lot of typos but the main
 	 structure is there).
 
-2005-12-06  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-06  Alexis Sukrieh  <sukria@gmail.com>
 
 	* Minor changes to the tests.
 	  + t/confs/upload-rsync.conf
@@ -1000,7 +1000,7 @@ Backup Manager 0.7.8
 	  + Use the current user as  BM_UPLOAD_SSH_USER and the ssh identity
 		  bm-test
 
-2005-12-05  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-05  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager.conf.tpl:
 	  + added the "none" methods in backup and upload sections.
@@ -1015,12 +1015,12 @@ Backup Manager 0.7.8
 	* t/t03.sh:
 	  + Test that "none" is possible in the methods keys.
 
-2005-12-05  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-05  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/upload-methods.sh:
 	  + rsync stuff works properly with root and with BM_UPLOAD_SSH_USER.
 
-2005-12-05  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-05  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager.conf.tpl:
 	  + replaced BM_RSYNC by BM_UPLOAD_RSYNC
@@ -1037,7 +1037,7 @@ Backup Manager 0.7.8
 	* t/t02.sh:
 	  + test script for RSYNC stuff.
 
-2005-12-05  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-05  Alexis Sukrieh  <sukria@gmail.com>
 
 	* added the t/ directory for handling tests. 
 	+ t/confs/base.conf
@@ -1055,12 +1055,12 @@ Backup Manager 0.7.8
 	+ t/t01.sh
 	+ t/testlib.sh
 
-2005-12-05  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-05  Alexis Sukrieh  <sukria@gmail.com>
 
 	* lib/sanitize.sh:
 	  + typo, hanlde -> handle.
 
-2005-12-05  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-12-05  Alexis Sukrieh  <sukria@gmail.com>
 
 	* BackupManager/Config.pm:
 	  + fixed some typos.
@@ -1085,7 +1085,7 @@ Backup Manager 0.7.8
 	  + New library for handling every upload methods, implemented here ssh
 	  and ftp methods.
 
-2005-11-23  Alexis Sukrieh  <sukria@backup-manager.org>
+2005-11-23  Alexis Sukrieh  <sukria@gmail.com>
 
 	* backup-manager:
 	  + Added the copyright/licence notice.
