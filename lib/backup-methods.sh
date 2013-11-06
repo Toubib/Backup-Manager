@@ -38,15 +38,13 @@ function commit_archive()
         echo "$str ${md5hash})"
     fi
 
-    md5file="$BM_REPOSITORY_ROOT/${BM_ARCHIVE_PREFIX}-${TODAY}.md5"
-
     # Check if the md5file contains already the md5sum of the file_to_create.
     # In this case, the new md5sum overwrites the old one.
-    if grep "$base" $md5file >/dev/null 2>&1 ; then
-        previous_md5sum=$(get_md5sum_from_file $base $md5file)
-        sed -e "/$base/s/$previous_md5sum/$md5hash/" -i $md5file
+    if grep "$base" $MD5FILE >/dev/null 2>&1 ; then
+        previous_md5sum=$(get_md5sum_from_file $base $MD5FILE)
+        sed -e "/$base/s/$previous_md5sum/$md5hash/" -i $MD5FILE
     else
-        echo "$md5hash  $base" >> $md5file
+        echo "$md5hash  $base" >> $MD5FILE
     fi
 
     # Now that the file is created, remove previous duplicates if exists...
@@ -246,7 +244,9 @@ function __get_flags_relative_blacklist()
     target="$2"
     debug "__get_flags_relative_blacklist ($switch, $target)"
 
-    target=${target%/}
+    if [ "$target" != "/" ]; then
+        target=${target%/}
+    fi
     blacklist=""
     for pattern in $BM_TARBALL_BLACKLIST
     do
@@ -260,7 +260,13 @@ function __get_flags_relative_blacklist()
                 # making a relative path...
                 pattern="${pattern#$target}"
                 length=$(expr length $pattern)
-                pattern=$(expr substr $pattern 2 $length)
+                # for $target="/", no spare / is left at the beggining
+                # after the # substitution; thus take substr from pos 1
+                if [ "$target" != "/" ]; then
+                    pattern=$(expr substr $pattern 2 $length)
+                else
+                    pattern=$(expr substr $pattern 1 $length)
+                fi
 
                 # ...and blacklisting it
                 blacklist="$blacklist ${switch}${pattern}"
@@ -797,7 +803,7 @@ function __make_local_tarball_token
             "dar")
                 __get_flags_dar_incremental "$dir_name"
             ;;
-            "tar"|"tar.gz"|"tar.bz2"|"tar.xz")
+            "tar"|"tar.gz"|"tar.bz2"|"tar.xz"|"tar.lz")
                 __get_flags_tar_incremental "$dir_name"
             ;;
             esac
@@ -894,26 +900,43 @@ function backup_method_pgsql()
     debug "backup_method_pgsql ($method)"
 
     info "Using method \"\$method\"."
-    if [[ ! -x $pgdump ]]; then
-        error "The \"pgsql\" method is chosen, but \$pgdump is not found."
+    if [[ -x $pgdump ]] && [[ -x ${pgdump}all ]]; then
+        :
+    else
+        error "The \"postgresql\" method is chosen, but \$pgdump and/or \$pgdumpall are not found."
     fi
 
-    opt=" -U$BM_PGSQL_ADMINLOGIN -h$BM_PGSQL_HOST -p$BM_PGSQL_PORT" 
+    # Allow empty host when connecting to postgress with unix sockets.
+
+    if [[ "X$BM_PGSQL_HOST" = "X" ]]; then
+        BM_PGSQL_HOSTFLAGS=""
+    else
+        BM_PGSQL_HOSTFLAGS="-h$BM_PGSQL_HOST"
+    fi
+    opt=" -U$BM_PGSQL_ADMINLOGIN $BM_PGSQL_HOSTFLAGS -p$BM_PGSQL_PORT" 
+
+    # We need a second variable, to know if the backup pgpass file was used.
+
     BM_SHOULD_PURGE_PGPASS="false"
+    BM_USING_BACKUP_PGPASS="false"
 
     if [[ -f $pgsql_conffile ]]; then
         info "Found existing PgSQL client configuration file: \$pgsql_conffile"
         info "Looking for matching credentials in this file..."
         if ! grep -qE "(${BM_PGSQL_HOST}|[^:]*):(${BM_PGSQL_PORT}|[^:]*):[^:]*:${BM_PGSQL_ADMINLOGIN}:${BM_PGSQL_ADMINPASS}" $pgsql_conffile; then
             info "No matching credentials: inserting our own."
-            cp $pgsql_conffile $pgsql_conffile_bm
             BM_SHOULD_PURGE_PGPASS="true"
-            echo "${BM_PGSQL_HOST}:${BM_PGSQL_PORT}:${BM_PGSQL_ADMINLOGIN}:${BM_PGSQL_ADMINPASS}" >> $pgsql_conffile
+            BM_USING_BACKUP_PGPASS="true"
+            mv $pgsql_conffile $pgsql_conffile_bm
+            touch $pgsql_conffile
+            chmod 0600 $pgsql_conffile
+            echo "${BM_PGSQL_HOST}:${BM_PGSQL_PORT}:*:${BM_PGSQL_ADMINLOGIN}:${BM_PGSQL_ADMINPASS}" >> $pgsql_conffile
         fi
     else
         warning "Creating a default PgSQL client configuration file: \$HOME/.pgpass"
-        echo "${BM_PGSQL_HOST}:${BM_PGSQL_PORT}:${BM_PGSQL_ADMINLOGIN}:${BM_PGSQL_ADMINPASS}" >> $pgsql_conffile
+        touch $pgsql_conffile
         chmod 0600 $pgsql_conffile
+        echo "${BM_PGSQL_HOST}:${BM_PGSQL_PORT}:*:${BM_PGSQL_ADMINLOGIN}:${BM_PGSQL_ADMINPASS}" >> $pgsql_conffile
     fi
 
     compress="$BM_PGSQL_FILETYPE"
@@ -924,7 +947,7 @@ function backup_method_pgsql()
             file_to_create="$BM_REPOSITORY_ROOT/${BM_ARCHIVE_PREFIX}-all-pgsql-databases.$TODAY.sql"
             command="${pgdump}all $opt $BM_PGSQL_EXTRA_OPTIONS"
         else
-            file_to_create="$BM_REPOSITORY_ROOT/${BM_ARCHIVE_PREFIX}-${database}.$TODAY.sql"
+            file_to_create="$BM_REPOSITORY_ROOT/${BM_ARCHIVE_PREFIX}-pgsql-${database}.$TODAY.sql"
             command="$pgdump $opt $database $BM_PGSQL_EXTRA_OPTIONS"
         fi
         __create_file_with_meta_command
@@ -932,9 +955,13 @@ function backup_method_pgsql()
 
     # purge the .pgpass file, if created by Backup Manager
     if [[ "$BM_SHOULD_PURGE_PGPASS" == "true" ]]; then
-        info "restoring initial .pgpass file."
-        warning "To avoid problems with .pgpass, insert the configured host:port:user:pass in $pgsql_conffile"
-        mv $pgsql_conffile_bm $pgsql_conffile
+        info "Removing default PostgreSQL password file: \$pgsql_conffile"
+	rm -f $pgsql_conffile
+        if [[ "$BM_USING_BACKUP_PGPASS" == "true" ]]; then
+            info "restoring initial \$pgsql_conffile file from backup."
+            warning "To avoid problems with \$pgsql_conffile, insert the configured host:port:database:user:password inside."
+            mv $pgsql_conffile_bm $pgsql_conffile
+        fi
     fi
 }
 
@@ -978,7 +1005,7 @@ function backup_method_mysql()
             file_to_create="$BM_REPOSITORY_ROOT/${BM_ARCHIVE_PREFIX}-all-mysql-databases.$TODAY.sql"
             command="$base_command --all-databases"
         else
-            file_to_create="$BM_REPOSITORY_ROOT/${BM_ARCHIVE_PREFIX}-${database}.$TODAY.sql"
+            file_to_create="$BM_REPOSITORY_ROOT/${BM_ARCHIVE_PREFIX}-mysql-${database}.$TODAY.sql"
             command="$base_command $database"
         fi
         __create_file_with_meta_command
