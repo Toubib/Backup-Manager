@@ -114,7 +114,7 @@ export BM_TARBALL_NAMEFORMAT="long"
 
 # Type of archives
 # Available types are:
-#     tar, tar.gz, tar.bz2, tar.lz, dar, zip.
+#     tar, tar.gz, tar.bz2, tar.lz, tar.xz, dar, zip.
 # Make sure to satisfy the appropriate dependencies 
 # (bzip2, dar, lzma, ...).
 export BM_TARBALL_FILETYPE="tar.gz"
@@ -217,7 +217,7 @@ export BM_MYSQL_HOST="localhost"
 # the port where MySQL listen to on the host
 export BM_MYSQL_PORT="3306"
 
-# which compression format to use? (gzip or bzip2)
+# which compression format to use? (gzip, bzip2 or xz)
 export BM_MYSQL_FILETYPE="bzip2"
 
 # Extra options to append to mysqldump
@@ -248,7 +248,7 @@ export BM_PGSQL_HOST="localhost"
 # the port where PostgreSQL listen to on the host
 export BM_PGSQL_PORT="5432"
 
-# which compression format to use? (gzip or bzip2)
+# which compression format to use? (gzip, bzip2 or xz)
 export BM_PGSQL_FILETYPE="bzip2"
 
 # Extra options to append to pg_dump
@@ -264,7 +264,7 @@ export BM_PGSQL_EXTRA_OPTIONS=""
 export BM_SVN_REPOSITORIES=""
 
 # You can compress the resulting XML files 
-# Supported compressor are: bzip2 and gzip
+# Supported compressor are: gzip, bzip2 and xz
 export BM_SVN_COMPRESSWITH="bzip2"
 
 ##############################################################
